@@ -20,6 +20,7 @@
 * `npm init` to create a new npm proj
 * `package.json` contains metadata about the project such as packages
 * `npm install <package?  --save` installs a new package to the project and adds as a dep to package.json
+* `--save-dev` is used to save the package for dev e.g. unit tests, minification
 * We can add scripts to package.json and run them with `npm run script_name`
 
 ### Webpack
