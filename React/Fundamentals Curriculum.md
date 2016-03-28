@@ -15,10 +15,75 @@
 
 ## NPM, Babel, Webpack and React Component
 ### NPM
+* Allows for modules to be shared without CSN or local copies
+* Manages different packages
+* `npm init` to create a new npm proj
+* `package.json` contains metadata about the project such as packages
+* `npm install <package?  --save` installs a new package to the project and adds as a dep to package.json
+* We can add scripts to package.json and run them with `npm run script_name`
 
 ### Webpack
+* Code bundler - takes code, transforms, bundles and produces new code
+* Main steps, what we need to provide
+  1. root JS file
+  2. Transformations to make
+  3. Location to save code
+* Loaders deal with transformation, we provide
+  * File type
+  * Dirs to include or exclude
+  * Specific loader to run
+* `__dirname` is referencing the name of the dir that the script resides in
+
+* Problem might be that we have /app and /dist both containing index.txt
+* Instead of manually copying and changing we'll use the *html-webpack-plugin*
+* We provide
+  * Template
+  * Filename
+  * Where to inject script i.e. head or body
+* Plugin detects output filename of new file and adds it in new index.html
+
+* `webpack -w` watches files and re-executes webpack upon changes
+* `webpack -p` is for production, minifies code
+
+```
+// In webpack.config.js
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
+  template: __dirname + '/app/index.html',
+  filename: 'index.html',
+  inject: 'body'
+});
+module.exports = {
+  entry: [
+    './app/index.js'
+  ],
+  output: {
+    path: __dirname + '/dist',
+    filename: "index_bundle.js"
+  },
+  module: {
+    loaders: [
+      {test: /\.js$/, exclude: /node_modules/, loader: "babel-loader"}
+    ]
+  },
+  plugins: [HTMLWebpackPluginConfig]
+};
+```
 
 #### Babel
+* Deals with the specific transformation of the code
+* e.g. JSX -> JS
+* Give webpack `babel-loader`
+* We create a `.babelrc` for each babel transformation
+* Tells babel-loader which transformations to actually make
+```
+{
+  "presets": [
+    "react"
+  ]
+}
+```
+
 
 ### React Component
 
