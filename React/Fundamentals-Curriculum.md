@@ -84,8 +84,14 @@ module.exports = {
 }
 ```
 
-
 ### React Component
+* Components are defined in JS or JSX
+* Data is received from a parent's component or contained in the component itself
+* `createClass` pass a description of the component
+  * Must have a `render` method
+* `ReactDOM.render` takes 2 args - component to render, DOM node to render
+* virtual DOM is a JavaScript representation of the actual DOM
+* React uses virtual DOM to minimise manipulations to the actual DOM
 
 
 ## Pure Functions. f(d)=v. Props and Nesting Components.
