@@ -45,7 +45,7 @@
 * `webpack -w` watches files and re-executes webpack upon changes
 * `webpack -p` is for production, minifies code
 
-```
+``` JavaScript
 // In webpack.config.js
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
@@ -76,7 +76,7 @@ module.exports = {
 * Give webpack `babel-loader`
 * We create a `.babelrc` for each babel transformation
 * Tells babel-loader which transformations to actually make
-```
+``` JavaScript
 {
   "presets": [
     "react"
