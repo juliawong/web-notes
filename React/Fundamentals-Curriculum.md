@@ -97,6 +97,29 @@ module.exports = {
 
 ## Pure Functions. f(d)=v. Props and Nesting Components.
 
+### Nested Components and Props
+* Props are used to pass data from one component to another, similar to arguments
+* e.g. the `name` attribute is passed
+``` JavaScript
+var HelloUser = React.createClass({
+  render: function(){
+    return (
+      <div> Hello, {this.props.name}</div>
+    )
+  }
+});
+ReactDOM.render(<HelloUser name="Tyler"/>, document.getElementById('app'));
+```
+
+### Building UIs with Pure Functions and Function Composition
+* f(d)=V, function takes in data and returns a view
+* Compose functions to get some UI
+* Pure functions are consistent and predictable
+  * Same args always gives the same results
+  * Exe doesn't depend on state of app
+  * Don't modify vars outside of scope
+* 
+
 
 ## this.props.children and getting started with React Router
 
