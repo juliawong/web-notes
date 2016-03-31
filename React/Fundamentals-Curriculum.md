@@ -118,11 +118,15 @@ ReactDOM.render(<HelloUser name="Tyler"/>, document.getElementById('app'));
   * Same args always gives the same results
   * Exe doesn't depend on state of app
   * Don't modify vars outside of scope
-* 
-
 
 ## this.props.children and getting started with React Router
 
+### this.props.children
+* Access specific data between opening and closing elements
+* `this.props.children` is an array of components when there are multiple nested components
+
+### React Router
+* Follow [this tutorial](https://github.com/reactjs/react-router-tutorial/tree/master/lessons)
 
 ## Container vs Presentational Components, PropTypes, and Stateless Functional Components
 
