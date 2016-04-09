@@ -54,3 +54,5 @@ https://codesachin.wordpress.com/2016/04/03/a-practical-introduction-to-function
 >>> reduce(lambda x, y: x + y, [1, 2, 3], 0)
 6
 ```
+
+TODO: https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming
