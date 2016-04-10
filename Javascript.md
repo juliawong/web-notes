@@ -9,7 +9,14 @@ https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Pr
 * Represents the result of a asynchronous computation
 * Operation that hasn't completed yet, but is expected in the future
 * e.g. waiting at a restaurant, a buzzer is like a promise for a future table, when it buzzes you get your table
+* Placeholder for values that will eventually be computed
 * Define success and failure methods
+* Plug value into an expression, delay execution of expression until needed
+
+Don't use promises for:
+* Notifying progress of computation, use Events
+* Producing multiple values over time, use Streams or Observables
+* Representing action, can't execute promises in order, use CPS
 
 ### States
 Once a primise is fulfilled or rejected, it is immutable
@@ -23,9 +30,9 @@ The above is also known as settled
 * Use `.then` when doing something with the result
 * Use `.done` when not doing anything with the result
 
-### Syntax
+### ECMAScript 2015 Syntax
 
-`new Promise(function(resolve, reject) { ... });
+`new Promise(function(resolve, reject) { ... });`
 * Functions to fulfil and reject the promise, called upon completion of operation
 `Promise.all(iterable);`
 * Returns a promise that resolves when all promises in iterable have been settled
@@ -120,6 +127,8 @@ p1.then(function(value) {
 });
 
 ```
+
+```
 p.then(onFulfilled, onRejected);
 
 p.then(function(value) {
@@ -131,6 +140,10 @@ p.then(function(value) {
 * Returns a promise with a callback for success and failure
 * Each takes an arg, value or reason
 * Chainable
+* Automatically lifts regular values to a promise
+* Disallows nested promises
+* Exceptions are caught and reified as a rejected promise
+* Invokes dependencies asynchronously
 
 ``` JavaScript
 p1.then(function(value) {
