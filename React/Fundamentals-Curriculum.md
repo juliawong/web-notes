@@ -127,6 +127,56 @@ ReactDOM.render(<HelloUser name="Tyler"/>, document.getElementById('app'));
 
 ### React Router
 * Follow [this tutorial](https://github.com/reactjs/react-router-tutorial/tree/master/lessons)
+* React Router is a component
+* hashHistory manages routing history with hash in URL
+* Create components in modules/ and import them in your routes
+
+``` JavaScript
+  <Router history={hashHistory}>
+    <Route path="/" component={App}/>
+    <Route path="/repos" component={Repos}/>
+    <Route path="/about" component={About}/>
+  </Router>
+```
+
+* `Link` component is aware of the Router it was rendered in
+* Nested routes allow us to render a common object on every screen and change the contents of a section
+  * e.g. navigation
+* Move routes underneath a root route, that root routes component will always be rendered
+  * Render children inside root route with `{this.props.children}`
+
+``` JavaScript
+<Router history={hashHistory}>
+    <Route path="/" component={App}>
+      {/* make them children of `App` */}
+      <Route path="/repos" component={Repos}/>
+      <Route path="/about" component={About}/>
+    </Route>
+  </Router>
+```
+
+* Link components have the `activeClassName` attribute so you can style active links
+* Can create a wrapper class to make the app more composable
+  * Use spread attribute `...` - properties of the object that you pass in are copied onto the component's props
+
+``` JavaScript
+ render() {
+    return <Link {...this.props} activeClassName="active"/>
+  }
+```
+
+* Parameters
+  * Paths starting with `:` are URL params
+  * Route components can access using `this.props.params[name]`
+  * Add route `<Route path="/repos/:userName/:repoName" component={Repo}/>`
+  * Use param `{this.props.params.repoName}`
+
+* Index
+  * `<IndexRoute component={Home}/>`
+  * Becomes `this.props.children` of parent when parents route matches
+  * Use `IndexLink` to edit properties like activeClassName
+    * Otherwise Home will always be active as / is the parent of everything
+    * Alternatively use `onlyActiveOnIndex={true}`
 
 ## Container vs Presentational Components, PropTypes, and Stateless Functional Components
 
