@@ -180,6 +180,49 @@ ReactDOM.render(<HelloUser name="Tyler"/>, document.getElementById('app'));
 
 ## Container vs Presentational Components, PropTypes, and Stateless Functional Components
 
+### Stateless Functional Components
+
+* Most components take in data via props and output some UI
+* Ideal paradigm for splitting components into containers and presentational components
+* e.g. the following can become a stateless functional component by removing the render method
+
+``` JavaScript
+var HelloWorld = React.createClass({
+  render: function () {
+    return (
+      <div>Hello {this.props.name}</div>
+    )
+  }
+})
+ReactDOM.render(<HelloWorld name='NAME' />, document.getElementById('app'))
+```
+To
+
+``` JavaScript
+function HelloWorld (props) {
+  return (
+    <div>Hello {props.name}</div>
+  )
+}
+ReactDOM.render(<HelloWorld name='Tyler' />, document.getElementById('app'))
+```
+
+### PropTypes
+* Allows for type checking properties passed to components
+
+``` JavaScript
+var React = require('react')
+var PropTypes = React.PropTypes
+var Icon = React.createClass({
+  propTypes: {
+    name: PropTypes.string.isRequired,
+    size: PropTypes.number.isRequired,
+    color: PropTypes.string.isRequired,
+    style: PropTypes.object
+  },
+  render: ...
+});
+```
 
 ## Life Cycle Events and Conditional Rendering
 
