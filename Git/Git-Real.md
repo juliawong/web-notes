@@ -7,15 +7,25 @@
   * `HEAD` refers to the last commit
 * `git reset HEAD --hard` remove all changes since HEAD
 * `git commit -a -m "modify readme"` skip staging and commit, adds changes from all tracked files
-* `git reset --soft HEAD` move commits to staging
 * `git commit --ammend` add file to existing commit
+* `git reset --soft HEAD^` move to commit before HEAD, undo last commit and put changes into staging
 * `git reset --hard HEAD^` undo last commmit and all changes
+* * soft is to maintain changes in staging
+* * hard is to get rid of changes
+* `git checkout -- file` discard changes in working directory
  
 ## Cloning and Branching
+* `git remote add <name for current remote e.g. origin> <url>` add a new remote
+* `git push -u <remote repo name e.g. origin> <local branch, e.g. master>` push to remote
 * `git remote -v` list all remotes
-* `git merge cat` merge from master
+* `git merge cat` merge cat into current branch
+* * Fast-forward merge done when current branch has nothing new and merged branch has new commits
+* * Recursive merge done when both branches have changes
 * `git checkout -b catdog_branch` create branch
 * `git branch -d cat` remove branch
+* `git pull`
+* * `git fetch` sync local repo with remote repo
+* * `git merge origin/master` merge origin/master with master
 
 ### Branching
 * We have remote branches and tags, we need to link them
