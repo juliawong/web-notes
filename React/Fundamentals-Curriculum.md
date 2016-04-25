@@ -170,6 +170,11 @@ ReactDOM.render(<HelloUser name="Tyler"/>, document.getElementById('app'));
   * Route components can access using `this.props.params[name]`
   * Add route `<Route path="/repos/:userName/:repoName" component={Repo}/>`
   * Use param `{this.props.params.repoName}`
+ 
+* Passing params in routes
+  * Define route e.g. `<Route path='playerOne' header='Player One' component={PromptContainer} />`
+  * We want to extract what's in *header*
+  * In PromptContainer.js we can use `{this.props.route.header}`
 
 * Index
   * `<IndexRoute component={Home}/>`
@@ -185,6 +190,7 @@ ReactDOM.render(<HelloUser name="Tyler"/>, document.getElementById('app'));
 * Most components take in data via props and output some UI
 * Ideal paradigm for splitting components into containers and presentational components
 * e.g. the following can become a stateless functional component by removing the render method
+* Use when just dealing with UI and PropTypes
 
 ``` JavaScript
 var HelloWorld = React.createClass({
@@ -223,6 +229,39 @@ var Icon = React.createClass({
   render: ...
 });
 ```
+
+### Containers
+* Deals with functional work
+* Components deal with presentational work
+
+### Link
+* Use when in another component and want to link to a defined route
+* Import `ReactRouter.Link`
+* `<Link to="/route-name-here">text</Link>
+
+
+### State
+* e.g. you have a form which has a field with the username that you want to save
+* We first initialise all states with a `getInitialState` function that initialise all fields
+  * e.g. `return { username" '' }`
+
+``` JavaScript
+ <input
+   className="form-control"
+   placeholder="Github Username"
+   onChange={this.onUpdateUser}
+   value={this.state.username}
+   type="text" />
+```
+
+* onChange is fired when the field is changed
+* Define the `onUpdateUser` function to use `this.setState` to change the state of the username
+  * Take in arg `e` and get the value using `e.target.value`
+### Context
+* Use to switch routes
+* Avoid needing to pass through props
+* Take `router` from `contextTypes`
+* Use `this.context.router.push` to change route
 
 ## Life Cycle Events and Conditional Rendering
 
