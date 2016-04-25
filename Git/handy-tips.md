@@ -1,36 +1,36 @@
 http://www.alexkras.com/19-git-tips-for-everyday-use
 
-Weekly report
+# Weekly report
 `git log --author="Julia" --after="1 week ago" --`
 `--oneline` to include hash and commit message
 
-Log changes in a file
+# Log changes in a file
 `git log -p filename`
 
-Log changes for specific lines in a file
+# Log changes for specific lines in a file
 `git log -L 1,1:some-file.txt`
 
-Log changes not merged to parent branch
+# Log changes not merged to parent branch
 Ignores merges from parent into current branch
 `git log --no-merges master..`
 
-View version of file on different branch
+# View version of file on different branch
 `git show some-branch:some-file.js`
 
-Stages
+# Stages
 * Not staged for commit
 * * Untracked files aren't in this stage
 * Staged for commit
 * Committed
 
-Resetting
+# Resetting
 Return to a particular version in git history
 
 `git reset --hard {{some-commit-hash}}` changes made after this commit are discarded, ideal for a fresh start
 `git reset {{some-commit-hash}}` changes made after this commit are not staged for commit, ideal for editing and committing in a different order
 `git reset --soft {{some-commit-hash}}` changes made after this commit are moved to staging, ideal for commiting multiple small commits as one large one
 
-Checkout
+# Checkout
 Forget local changes for file/s
 `git checkout forgetme.txt`
 
