@@ -21,7 +21,7 @@ Ignores merges from parent into current branch
 
 # Stages
 * Not staged for commit
-* * Untracked files aren't in this stage
+  * Untracked files aren't in this stage
 * Staged for commit
 * Committed
 
