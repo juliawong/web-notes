@@ -10,6 +10,11 @@ From the `master` branch we can do a `git rebase origin/master` to bring in thos
 
 `git pull --rebase`
 does this
+
+e.g. you commit to a branch and other people have committed. You attempt to push but git tells you to pull changes.
+* pull changes
+* reapply (rebase) your un-pushed commits on top of latest version of remote branch
+
 ```
 git fetch origin
 git rebase --onto origin/foo e foo
