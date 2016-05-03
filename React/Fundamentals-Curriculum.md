@@ -243,7 +243,7 @@ var Icon = React.createClass({
 ### State
 * e.g. you have a form which has a field with the username that you want to save
 * We first initialise all states with a `getInitialState` function that initialise all fields
-  * e.g. `return { username" '' }`
+  * e.g. `return { username: '' }`
 
 ``` JavaScript
  <input
@@ -257,6 +257,7 @@ var Icon = React.createClass({
 * onChange is fired when the field is changed
 * Define the `onUpdateUser` function to use `this.setState` to change the state of the username
   * Take in arg `e` and get the value using `e.target.value`
+
 ### Context
 * Use to switch routes
 * Avoid needing to pass through props
