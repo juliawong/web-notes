@@ -1,4 +1,5 @@
-http://www.alexkras.com/19-git-tips-for-everyday-use
+* http://www.alexkras.com/19-git-tips-for-everyday-use
+* http://devblog.nestoria.com/post/98892582763/maintaining-a-consistent-linear-history-for-git
 
 # Weekly report
 `git log --author="Julia" --after="1 week ago" --`
@@ -66,4 +67,14 @@ Ideal for experimenting with reverts without needing to commit
 * git checkouts a middle commit between good and bad
 * `git bisect bad/good` let git know whether the current commit is working or not
 * git will inform you when the first bad commit is found
+
+
+# git log first-parent
+* Merge = commit with 2+ parents, parents are ordered
+* After merging branch into master, first parent is tip commit of master, second parent is tip commit of other branch
+* `git log --first-parent`
+ * Follows each commit's parents
+ * Commits from branch aren't displayed
+ * Merge commits are displayed
+ * Similar to folds in a text editor
 
