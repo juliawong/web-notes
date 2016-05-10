@@ -1,5 +1,6 @@
 * http://www.alexkras.com/19-git-tips-for-everyday-use
 * http://devblog.nestoria.com/post/98892582763/maintaining-a-consistent-linear-history-for-git
+* http://www.metaltoad.com/blog/beginners-guide-git-bisect-process-elimination
 
 # Weekly report
 `git log --author="Julia" --after="1 week ago" --`
