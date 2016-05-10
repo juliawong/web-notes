@@ -40,3 +40,40 @@ Change *pick* to *edit*
 `git commit --amend -s` and `git rebase --continue` for each commit
 
 `git push -f` may be necessary. Don't use this on public branches without explicit permission.
+
+# Topic branch off another topic branch
+e.g. a branch (client) of a branch (server) off master
+
+## Merge client into master
+* Takes changes not on client that aren't on server
+* Replay them on master
+
+```
+ git rebase --onto master server client
+ ```
+ 
+ * Check out the client branch
+ * Figure out the patches from the common ancestor of the client and server branches
+ * Replay them onto master
+ 
+```
+git checkout master
+git merge client
+```
+
+Fast-forward master branch to include client branch changes.
+
+## Merge server into master
+* Rebase with
+
+```
+git rebase [basebranch] [topicbranch]
+```
+
+* Checks out topicbranch
+* Replays on top of basebranch
+
+Then fast-forward master branch to include server branch changes
+
+
+
