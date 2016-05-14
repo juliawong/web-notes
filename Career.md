@@ -26,5 +26,4 @@
 * Who are you? Do you match up wth your resume?
 * How do you solve problems? Thought process
 * Conversation about what you think the right answer is
-* 
 
