@@ -2,9 +2,11 @@
 
 ## Promises
 
-http://robotlolita.me/2015/11/15/how-do-promises-work.html
-https://www.promisejs.org/
-https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise
+* http://robotlolita.me/2015/11/15/how-do-promises-work.html
+* https://www.promisejs.org/
+* https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise
+* https://egghead.io/series/js-console-for-power-users
+
 
 * Represents the result of a asynchronous computation
 * Operation that hasn't completed yet, but is expected in the future
@@ -152,3 +154,22 @@ p1.then(function(value) {
   // Error handler
 });
 ```
+
+## Logging
+
+* `console.log` is the usual one we see
+* Different levels of logging - `warn`, `error`, `info`, `debug`
+* Can pass in multiple args
+  * `console.log({foo: barObj, a: bObj})`
+  * `console.log("Hello %x", "world")`
+  * Style output `console.log("This is my %coutput!", "color: blue; font-size 3em;")`
+* `console.group` ideal for nesting other statements under it
+  * `console.groupEnd()` end the group
+  * `console.groupCollapsed` collapse all statements and only log root
+* `console.assert` if statement false, outputs error
+  * Won't prevent other lines from being executed
+* `console.count` logs message and number of occurrences
+* `console.time` tracks time for given key until `console.timeEnd` with same key
+* `console.table` pretty-print tabular data e.g. array of objects
+  * Second arg is columns to show
+
