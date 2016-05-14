@@ -4,6 +4,7 @@
 
 * https://codesachin.wordpress.com/2016/04/03/a-practical-introduction-to-functional-programming-for-python-coders/
 * https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming
+* https://www.smallsurething.com/list-dict-and-set-comprehensions-by-example/
 
 * Pure functions don't rely on state
   * You get the same output with the same set of inputs
