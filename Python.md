@@ -74,6 +74,38 @@ name_lengths = map(len, ["Mary", "Isla", "Sam"])
 * `y` is the current item being iterated over
 * result stored back in `x`
 * If there is no initial accumulator, the first element is `x` and the second element is `y`
-* 
 
+
+## Comprehensions
+
+### Lists
+
+* `[x**2 if x % 2 == 0 else x**3 for x in range(10)]` x if y else z
+* Can nest inside each other `[[0 for x in range(10)] for y in range(10)]`
+
+### Generator Expressions
+
+* Don't require us to create a temporary list in memory
+* Pass it the comprehension
+* `sum(x**2 for x in range(20))`
+* `set(word for word in vocab_list if word not in known_words)`
+* `dict((grade, convert_to_letter(grade)) for grade in report_card)`
+
+### Dict
+
+* `{key: value for (key, value) in iterable}`
+* e.g. initialise letter frequencies
+* `{c: 0 for c in string.ascii_lowercase}`
+* e.g. take 2 lists and create dictionary
+* `{k: v**3 for (k, v) in zip(string.ascii_lowercase, range(26))}`
+* `zip` returns an iterator of tuples, maintains order of input iterables
+* Can have if else constructs e.g. omits cubes not divisible by 4
+* `{x: x**3 for x in range(10) if x**3 % 4 == 0}`
+
+### Set
+
+* Set is an unordered collection of unique elements
+* `{EXPRESSION FOR ELEMENT IN SEQUENCE}`
+* Python 3 `{n**2 for n in range(10)}`
+* `set(n**2 for n in range(10))`
 
