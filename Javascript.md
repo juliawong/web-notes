@@ -173,3 +173,19 @@ p1.then(function(value) {
 * `console.table` pretty-print tabular data e.g. array of objects
   * Second arg is columns to show
 
+# Arrow function
+
+* Anonymous functions
+* `this` still works
+* e.g. `var even_digits = digits.filter( num => num % 2 === 0 );`
+* `function(a) { return b' }` becomes '(a) => b'
+
+# Template Strings
+
+* Use backticks ```
+* String literals allowing embedded expressions
+* Multiline strings
+  * New line chars in source are part of the string
+* String interpolation
+  * Define variables and use in string with `${varname}`
+  * `console.log(``Congratulations ${contestant}!, Your score is ${score}.``);`
