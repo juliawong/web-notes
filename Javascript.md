@@ -230,4 +230,51 @@ p1.then(function(value) {
 * `Symbol.for(key)` search for existing symbol with key, return if found otherwise create symbol
 * `Symbol.keyFor(sym)` retrieve shared symbol key from registry
 
+# Let
 
+* Declare variables limited to scope
+* Scoped to nearest enclosing block
+* `var` defines a variable globally or locally to function regardless of block scope
+  * Scoped to nearest function block
+
+``` JavaScript
+function allyIlliterate() {
+    //tuce is *not* visible out here
+
+    for( let tuce = 0; tuce < 5; tuce++ ) {
+        //tuce is only visible in here (and in the for() parentheses)
+    };
+
+    //tuce is *not* visible out here
+};
+
+function byE40() {
+    //nish *is* visible out here
+
+    for( var nish = 0; nish < 5; nish++ ) {
+        //nish is visible to the whole function
+    };
+
+    //nish *is* visible out here
+};
+```
+
+# Const
+
+* Read-only reference to value
+* Cannot be reassigned
+* Must be assigned value when declared
+* `const ONE = 1;`
+
+# For ... of loop
+
+* Iterates over iterable objects e.g. arrays, maps, etc.
+* Invokes custom iteration hook
+* for-in loop is to loop over object properties
+
+``` JavaScript
+var employee = ['001', '002', '003', '004', '005', '006', '007'];
+for(let i in employee){
+    console.log(i);
+}
+```
