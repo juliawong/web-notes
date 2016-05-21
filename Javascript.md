@@ -189,3 +189,44 @@ p1.then(function(value) {
 * String interpolation
   * Define variables and use in string with `${varname}`
   * `console.log(``Congratulations ${contestant}!, Your score is ${score}.``);`
+
+# Primitives
+
+* Data that isn't an object and has no methods
+* string, number, boolean, null, undefined, symbol
+* Immutable
+* Wrappers are captialised objects, to get primitive value use `valueOf`
+  ``` JavaScript
+  var word1 = "hello" // string
+  var word2 = new String("hello"); // object
+  word1 == word2;
+  word 1 !== word2;
+  ```
+* Can treat primitive data types as an object
+  * JS turns primitve into an object, runs method, transforms back to primitive
+  * e.g.
+  ```JavaScript
+   var greeting = "hello";
+   greeting.size
+   ```
+
+## Symbol Wrapper
+
+* Used as an identifier for object properties
+* Unique aka atoms
+* `Symbol([description])`
+  * Description is for debugging purposes
+* `Symbol("foo") === Symbol("foo"); // false`
+* Can't use with `new` so we always create a new symbol value instead of an object
+  * Can create Symbol wrapper object using `Object()`
+  * `var symObj = Object(Symbol("foo"))`
+* Not visible in `for...in` iterations
+* View an objects symbools with `Object.getOwnPropertySymbols()`
+
+### Global Symbol Registry
+
+* Create symbols that can be accessed across files and realms
+* `Symbol.for(key)` search for existing symbol with key, return if found otherwise create symbol
+* `Symbol.keyFor(sym)` retrieve shared symbol key from registry
+
+
