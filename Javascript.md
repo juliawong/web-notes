@@ -196,6 +196,7 @@ p1.then(function(value) {
 * string, number, boolean, null, undefined, symbol
 * Immutable
 * Wrappers are captialised objects, to get primitive value use `valueOf`
+  *  
   ``` JavaScript
   var word1 = "hello" // string
   var word2 = new String("hello"); // object
