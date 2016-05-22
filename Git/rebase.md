@@ -1,3 +1,5 @@
+* https://git-scm.com/book/en/v2/Git-Branching-Rebasing
+
 # Rebase
 
 * Merge another branch into the branch where you are currently working
