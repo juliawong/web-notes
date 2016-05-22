@@ -266,6 +266,128 @@ var Icon = React.createClass({
 
 ## Life Cycle Events and Conditional Rendering
 
+* Render method needs to be a pure function - receive state and props, render UI
+* Where to put state, Ajax requests, etc.?
+* Lifecycle methods allow us to hook into views when specific conditions happen e.g first render
+* 2 main categories
+ * Component un/mounted from/to DOM
+ * Component receives new data
+
+Life cycle events
+
+* `getDefaultProps()`
+* `getInitialState()`
+* `componentWillMount()`
+* `render()`
+* `componentDidMount()`
+
+Events called when component receives new data from parent
+
+* `componentWillReceiveProps` execute code when component receives new props
+* `shouldComponentUpdate` implement to return a bool whether or not to update component
+
+![react lifecycle][lifecycle]
+
+
+### Mounting/Unmounting
+
+* Component initialised and added to DOM (mounting)
+* Component removed from DOM (unmounting)
+* Invoked once during life of component
+
+#### Establish default props in component
+* Prop has a default value
+* `getDefaultProps`
+* e.g. loading component that took in text, have a default value if none provided
+
+``` JavaScript
+var Loading = React.createClass({
+  getDefaultProps: function () {
+    return {
+      text: 'Loading'
+    }
+  },
+  render: function () {
+    ...
+  }
+})
+```
+
+#### Set initial state in component
+
+* `getInitialState`
+* Set initial state of component when first added to DOM
+* Update state using `this.setState` and pass in object to overwite email/password properties
+
+``` JavaScript
+var Login = React.createClass({
+  getInitialState: function () {
+    return {
+      email: '',
+      password: ''
+    }
+  },
+  render: function () {
+    ...
+  }
+})
+```
+
+#### AJAX request to fetch data needed for component
+
+* `componentDidMount`
+* Called after mounted
+* e.g. Axios fetches data tehn calls callback fn
+
+``` JavaScript
+var FriendsList = React.createClass({
+  componentDidMount: function () {
+    return Axios.get(this.props.url).then(this.props.callback)
+  },
+  render: function () {
+    ...
+  }
+})
+```
+
+#### Setup listeners e.g. websockets or firebae
+
+* `componentDidMount`
+
+``` JavaScript
+var FriendsList = React.createClass({
+  componentDidMount: function () {
+    ref.on('value', function (snapshot) {
+      this.setState({
+        friends: snapshot.val()
+      })
+    })
+  },
+  render: function () {
+    ...
+  }
+})
+```
+
+
+#### Remove listeners upon unmounting
+
+* Remove when component removed to prevent memory leaks
+* `componentWillUnmount`
+
+``` JavaScript
+var FriendsList = React.createClass({
+  componentWillUnmount: function () {
+    ref.off()
+  },
+  render: function () {
+    ...
+  }
+})
+```
+
+
+
 
 ## Axios, Promises, and the Github API
 
@@ -283,3 +405,6 @@ var Icon = React.createClass({
 
 
 ## React Router Transition Animation and Webpack's CSS Loader
+
+
+[lifecycle]: http://i.imgur.com/peYbIzH.png
