@@ -44,9 +44,10 @@ Change *pick* to *edit*
 # Topic branch off another topic branch
 e.g. a branch (client) of a branch (server) off master
 
-## Merge client into master
-* Takes changes not on client that aren't on server
+## Merge client into master without affecting server
+* Takes changes on client that aren't on server
 * Replay them on master
+* master now contains commits from client that aren't on server
 
 ```
  git rebase --onto master server client
