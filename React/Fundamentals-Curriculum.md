@@ -386,11 +386,52 @@ var FriendsList = React.createClass({
 })
 ```
 
-
-
-
 ## Axios, Promises, and the Github API
 
+### this
+
+* Where was this function invoked?
+
+#### Implicit binding
+
+* Most common
+* Left of the dot at call time
+* e.g. `me.callName()`
+* We can nest functions, will check if left of dot has property
+
+#### Explicit binding
+
+* call, apply, bind
+* `var sayName = function(lang1, lang2, lang3)`
+* ``call`
+ * e.g. `sayName.call(stacey, languages[0], languages[1], languages[2])`
+ * Context to call function in
+ * Args after the first are params
+* `apply`
+ * Similar to call, parses objects in an array for us
+ * e.g. `sayName.apply(stacey, languages) //languages is an array of 3 elements`
+* `bind`
+ * Returns a new function instead of invoking one
+ * e.g. `var newFn = sayName.bind(stacey, languages[0], languages[1], languages[2])`
+
+
+#### new binding
+
+* When `new` keyword used
+* `this` is bound to a new object
+
+#### window binding 
+
+* `var sayAge = function() { console.log(this.age); }'`
+* If `this` is not set through implicit or explicit binding, it uses `window`
+* e.g. `sayAge()` will output undefined
+* `window.age = 25;` then `sayAge()` will output `25`
+
+### Axios
+
+* Uses promises
+* `axios.get` sends a GET request to the URL
+* `axios.all` takes in an array of promises, waits for all to be resolved and then executes callback
 
 ## Rendering UI
 
