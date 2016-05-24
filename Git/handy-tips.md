@@ -1,6 +1,7 @@
 * http://www.alexkras.com/19-git-tips-for-everyday-use
 * http://devblog.nestoria.com/post/98892582763/maintaining-a-consistent-linear-history-for-git
 * http://www.metaltoad.com/blog/beginners-guide-git-bisect-process-elimination
+* http://vanwilson.info/2016/05/wrangling-wandering-whitespace-git/
 
 # Weekly report
 `git log --author="Julia" --after="1 week ago" --`
@@ -79,3 +80,14 @@ Ideal for experimenting with reverts without needing to commit
  * Merge commits are displayed
  * Similar to folds in a text editor
 
+# Whitespace
+
+* Git shows trailing whitespace in diffs
+* Highlight tabs for indentation `git config --global core.whitespace "tab-in-indent"`
+ * `blank-at-eol` - show space at end of lines
+ * `blank-at-eof` - show space at end of files
+ * `indent-with-non-tab` - show spaces in indentation 
+* Show what git considers whitespace errors `git diff --check`
+* Fix whitespace errors in last commit with rebase if not yet pushed
+ * Check previous commit `git diff HEAD~1 HEAD`
+ * `git rebase HEAD~1 --whitespace=fix`
