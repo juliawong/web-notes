@@ -278,3 +278,20 @@ for(let i in employee){
     console.log(i);
 }
 ```
+
+# Hoisting
+
+* Variable declarations are moved to the top of the current scope
+  * e.g. functions have their own scope but `if` and `for` loops don't
+* Variable assignments remain where they are
+
+
+This prints `undefined` because inside `var text'` is hoisted to the top of `function logIt`
+``` JavaScript
+  var text = 'outside';
+function logIt(){
+    console.log(text);
+    var text = 'inside';
+};
+logIt();
+```
