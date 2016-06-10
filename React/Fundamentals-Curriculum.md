@@ -403,7 +403,7 @@ var FriendsList = React.createClass({
 
 * call, apply, bind
 * `var sayName = function(lang1, lang2, lang3)`
-* ``call`
+* `call`
  * e.g. `sayName.call(stacey, languages[0], languages[1], languages[2])`
  * Context to call function in
  * Args after the first are params
@@ -433,11 +433,46 @@ var FriendsList = React.createClass({
 * `axios.get` sends a GET request to the URL
 * `axios.all` takes in an array of promises, waits for all to be resolved and then executes callback
 
-## Rendering UI
-
-
 ## More Container vs Presentational Components
 
+### Reduce
+
+* Take a list of items and convert them into one new item
+* e.g. sum an arary of integers
+* `.reduce` takes a callback function and an initial value
+* Callback function takes in 2 parameters
+* Reducer uses the initial value with the first element for the first call of the callback
+* Returned element acts as the accumulator for the next iteration
+
+``` JavaScript
+var scores = [89, 76, 47, 95]
+var initialValue = 0
+var reducer = function (accumulator, item) {
+  return accumulator + item
+}
+var total = scores.reduce(reducer, initialValue)
+
+var votes = [
+  'tacos',
+  'pizza',
+  'pizza',
+  'tacos',
+  'fries',
+  'ice cream',
+  'ice cream',
+  'pizza'
+]
+var initialValue = {}
+var reducer = function(tally, vote) {
+  if (!tally[vote]) {
+    tally[vote] = 1;
+  } else {
+    tally[vote] = tally[vote] + 1;
+  }
+  return tally;
+}
+var result = votes.reduce(reducer, initialValue) // {tacos: 2, pizza: 3, fries: 1, ice cream: 2}
+```
 
 ## Private Functional Stateless Components
 
