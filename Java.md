@@ -75,3 +75,17 @@
 * Can create many sort sequences
 * Takes 2 objects `compare (Object o1, Object o2)`
 * Requires additional class, ideal if class can't be modified
+
+# Unmodifiable and Immutable Collections
+
+* Unmodifiable acts like a wrapper with a read-only access
+  * Those with reference to the modifiable object can still change it
+* Immutable guarantees that there is no possibility of the collection being modified
+  * The objects that are elements may still be mutable
+
+# Other
+
+* Fields are resolved statically at runtime 
+  * e.g. Variables aren't polymorphic
+* Methods are accessed via dynamic lookup
+
