@@ -476,6 +476,27 @@ var result = votes.reduce(reducer, initialValue) // {tacos: 2, pizza: 3, fries: 
 
 ## Private Functional Stateless Components
 
+### Private Components
+
+* Similar to a private function
+* Ideal for modularity
+* Have a stateless functional component call another stateless functional component
+
+``` JavaScript
+var React = require('react');
+function FriendItem (props) {
+  return <li>{props.friend}</li>
+}
+function FriendsList (props) {
+  return (
+    <h1>Friends:</h1>
+    <ul>
+      {props.friends.map((friend, index) => <FriendItem friend={friend} key={friend} />)}
+    </ul>
+  )
+}
+module.exports = FriendsList
+```
 
 ## Building a Highly Reusable React Component
 
