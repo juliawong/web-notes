@@ -500,6 +500,35 @@ module.exports = FriendsList
 
 ## Building a Highly Reusable React Component
 
+### getDefaultProps
+
+* Specify default props for a component if they aren't specified upon invokation
+
+``` JavaScript
+var Loading = React.createClass({
+  getDefaultProps: function () {
+    return {
+      text: 'loading',
+      styles: {color: 'red'}
+    }
+  },
+  render: function () {
+    ...
+  }
+})
+```
+
+Text defaults to loading and color is red
+``` HTML
+  <Loading />
+```
+
+Override
+
+``` HTML
+<Loading text='One second' styles={color: 'green'} />
+```
+
 
 ## React Router Transition Animation and Webpack's CSS Loader
 
