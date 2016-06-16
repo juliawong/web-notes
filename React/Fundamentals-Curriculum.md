@@ -532,5 +532,13 @@ Override
 
 ## React Router Transition Animation and Webpack's CSS Loader
 
+### Clone Element
+
+* React element - a plain object describing a component instance or DOM node and its desired properties
+* We can clone React elements and attach new props to it like so:
+
+``` JavaScript
+React.cloneElement(FriendList, {friends: ['Jake', 'Joe']})
+```
 
 [lifecycle]: http://i.imgur.com/peYbIzH.png
