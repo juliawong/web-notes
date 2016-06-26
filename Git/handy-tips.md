@@ -168,7 +168,7 @@ Checkout new branch and specify remote branch for push and pull
 
 `git push <remote> <place>`
 
-e.g. `git push origin master`
+e.g. `git push origin master` is equivalent to `git fetch origin master; git merge o/master`
 
 Goes to branch named `master`, grabs all commits then goes to `origin/master` and places missing commits on there
 
@@ -185,14 +185,22 @@ Use to specify source and destination of place
 * Git resolves `foo^` into a location
 * Upload commits that aren't present on remote
 * Update destination
+* Will mrege regardless of what was currently checked out
 
 If destination you want to push to doesn't exist then git will create one on the remote for you
 
 `git push origin master:newBranchName`
 
+Delete the branch locally and remotely by skipping the source
+
+`git push origin :side`
+
+
 ## Fetch
 
 Doesn't update your local non-remote branches
+
+No args, downloads all commits from remote onto all remote branches
 
 `git fetch origin foo`
 
@@ -206,3 +214,9 @@ Fetch commits directly to a local branch, not checkout out branch
 
 * Source is the remote
 * Destination is the local branch to place commits
+* Create local branch destination if doesn't exist
+
+
+Create a new branch locally by skipping the source
+
+`git fetch origin :bar`
