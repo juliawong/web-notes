@@ -189,3 +189,20 @@ Use to specify source and destination of place
 If destination you want to push to doesn't exist then git will create one on the remote for you
 
 `git push origin master:newBranchName`
+
+## Fetch
+
+Doesn't update your local non-remote branches
+
+`git fetch origin foo`
+
+* Go to `foo` branch on remote
+* Grab all commits that aren't in the local `foo` branch
+* Put on `origin/foo` branch locally
+
+Fetch commits directly to a local branch, not checkout out branch
+
+`git fetch origin <source>:<destination>`
+
+* Source is the remote
+* Destination is the local branch to place commits
