@@ -2,6 +2,7 @@
 * http://devblog.nestoria.com/post/98892582763/maintaining-a-consistent-linear-history-for-git
 * http://www.metaltoad.com/blog/beginners-guide-git-bisect-process-elimination
 * http://vanwilson.info/2016/05/wrangling-wandering-whitespace-git/
+* http://learngitbranching.js.org/
 
 # Weekly report
 `git log --author="Julia" --after="1 week ago" --`
@@ -45,8 +46,26 @@ Different version of file
 
 `git checkout {{some-commit-hash}} file-name.js`
 
-# Softly revert
-Ideal for experimenting with reverts without needing to commit
+## Operators
+* ^ parent of commit
+ * `git checkout master^` first parent of master
+ * Number indicates parent reference from merge
+* ~<num>
+ * `git checkout HEAD~3` move upwards 3 times
+
+# Branch Forcing
+
+Move, by force, master branch to 3 commits behind HEAD
+`git branch -f master HEAD~3`
+
+
+# Revert
+
+Creates a new commit that introduces changes to reverse the commit
+
+`git revert HEAD`
+
+Soft revert is ideal for experimenting with reverts without needing to commit
 
 `git revert -n`
 
@@ -91,3 +110,82 @@ Ideal for experimenting with reverts without needing to commit
 * Fix whitespace errors in last commit with rebase if not yet pushed
  * Check previous commit `git diff HEAD~1 HEAD`
  * `git rebase HEAD~1 --whitespace=fix`
+
+# Cherry-pick
+
+Copy a series of commits to below HEAD
+
+`git cherry-pick <Commit1> <Commit2> <...>`
+
+
+Copy commits C2 and C4 to after master (current branch)
+
+`git cherry-pick C2 C4`
+
+# Tags
+
+Permanently mark commits as milestones that can be easily referenced
+
+Can't commit afterwards, checked out as detached head state
+
+Create a tag named `v1` and reference commit `C1` (if commit not given, `HEAD` is used)
+
+`git tag v1 C1`
+
+## Describe
+
+Describe where you are relative to closest tag
+
+If no ref given, use `HEAD`
+
+`git describe <ref>`
+
+Outputs
+
+`<tag>_<numCommits>_g<hash>`
+
+* tag - closest ancestor tag in history
+* numCommits - how many commits away that tag is
+* hash - hash of commit described
+
+# Remotes
+
+## Clone
+* Creates a remote branch for every branch on the remote, e.g. `origin/master`
+  * Tracks changes on the remote
+  * Checking out to this results in detached state
+* Creates local branch to track each active branch on the remote e.g. `master`
+
+## Tracking
+
+Checkout new branch and specify remote branch for push and pull
+
+`git checkout -b foo o/master`
+
+`git branch -u o/master foo`
+
+## Push
+
+`git push <remote> <place>`
+
+e.g. `git push origin master`
+
+Goes to branch named `master`, grabs all commits then goes to `origin/master` and places missing commits on there
+
+## Refspec
+
+* Location that git can figure out
+
+`git push origin <source>:<destination>`
+
+Use to specify source and destination of place
+
+`git push origin foo^:master`
+
+* Git resolves `foo^` into a location
+* Upload commits that aren't present on remote
+* Update destination
+
+If destination you want to push to doesn't exist then git will create one on the remote for you
+
+`git push origin master:newBranchName`
