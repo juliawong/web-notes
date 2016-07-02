@@ -3,6 +3,7 @@ Mostly a list of courses I want to complete and some project ideas.
 # Udacity
 
 - [ ] Programming Languages
+- [ ] Intro to Theoretical Computer Science
 - [ ] Intro to Algorithms
 - [ ] Intro to Relational Databases
 - [ ] Configuring Linux Web Servers
