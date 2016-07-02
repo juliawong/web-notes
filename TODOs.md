@@ -9,8 +9,8 @@ Mostly a list of courses I want to complete and some project ideas.
 - [ ] Full Stack Foundations
 - [ ] Web Development
 - [ ] Computer Networking
-- [ ] Intro to jQuery
-- [ ] Intro to AJAX
+- [x] Intro to jQuery
+- [x] Intro to AJAX
 - [ ] JavaScript Promises
 - [ ] Web Tooling & Automation
 - [ ] Front End Frameworks
@@ -28,4 +28,3 @@ Mostly a list of courses I want to complete and some project ideas.
 
 - Live visualisation of tweets/searches
 - HipChat bot
-- 
