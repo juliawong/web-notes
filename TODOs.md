@@ -23,6 +23,9 @@ Mostly a list of courses I want to complete and some project ideas.
 - [ ] Introduction to Computer Vision
 - [ ] Android Development for Beginners
 - [ ] Computer Networking
+- [ ] Intro to Hadoop and MapReduce
+- [ ] Scalable Microservices with Kubernetes
+
 
 
 # Project ideas
