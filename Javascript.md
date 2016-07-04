@@ -6,6 +6,7 @@
 * https://www.promisejs.org/
 * https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise
 * https://egghead.io/series/js-console-for-power-users
+* http://www.html5rocks.com/en/tutorials/es6/promises/
 
 
 * Represents the result of a asynchronous computation
@@ -32,6 +33,38 @@ The above is also known as settled
 * Use `.then` when doing something with the result
 * Use `.done` when not doing anything with the result
 
+### Sequence
+* Sequence of promises to ensure executed in order
+
+```JavaScript
+// Start off with a promise that always resolves
+var sequence = Promise.resolve();
+
+// Loop through our chapter urls
+story.chapterUrls.forEach(function(chapterUrl) {
+  // Add these actions to the end of the sequence
+  sequence = sequence.then(function() {
+    return getJSON(chapterUrl);
+  }).then(function(chapter) {
+    addHtmlToPage(chapter.html);
+  });
+});
+```
+
+#### all
+* `Promise.all(arrayOfPromises)`
+* Download all at the same time
+* Create a promise that fulfils when all have completed
+
+```JavaScript
+return Promise.all(
+  // Map our array of chapter urls to
+  // an array of chapter json promises
+  story.chapterUrls.map(getJSON)
+);
+```
+
+
 ### ECMAScript 2015 Syntax
 
 `new Promise(function(resolve, reject) { ... });`
@@ -42,8 +75,8 @@ The above is also known as settled
 * If any reject, promise rejects with value of first rejected promise, discards all other promises
 
 ``` JavaScript
-Promise.all([arr, of, vals]).then(function(value) { 
-  console.log(value); // success 
+Promise.all([arr, of, vals]).then(function(value) {
+  console.log(value); // success
 }, function(reason) {
   console.log(reason); // failure
 });
@@ -55,8 +88,8 @@ Promise.all([arr, of, vals]).then(function(value) {
 * Returns value or reason from first settled promise
 
 ``` JavaScript
-Promise.race([arr, of, vals]).then(function(value) { 
-  console.log(value); // success 
+Promise.race([arr, of, vals]).then(function(value) {
+  console.log(value); // success
 }, function(reason) {
   console.log(reason); // failure
 });
