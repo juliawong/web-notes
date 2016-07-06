@@ -14,6 +14,7 @@ Mostly a list of courses I want to complete and some project ideas.
 - [x] Intro to jQuery
 - [x] Intro to AJAX
 - [x] JavaScript Promises
+- [ ] Intro to Backend
 - [ ] Web Tooling & Automation
 - [ ] Front End Frameworks
 - [ ] Client-Server Communication
@@ -28,6 +29,10 @@ Mostly a list of courses I want to complete and some project ideas.
 - [ ] Scalable Microservices with Kubernetes
 - [ ] Data Visualization and D3.js
 
+
+# Other
+
+- [ ] [Webpack](https://github.com/AriaFallah/WebpackTutorial)
 
 # Project ideas
 
