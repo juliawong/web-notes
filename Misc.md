@@ -49,3 +49,11 @@ What's happening
 * We use the arithmetic sum to get the sum of the first numbers
 * We then multiply this by the multiple to get the answer
 
+## Check for primes
+
+* Composite numbers can be represented as a product of prime numbers
+* Can be factored into 2 factors, `a` and `b`
+ * `a` and `b` can't both be greater than the square root of `n` otherwise the number would be greater than `n`
+ * At least one of those factors must be <= to the square root of `n`
+* Test if prime by checking factors <= to square root
+
